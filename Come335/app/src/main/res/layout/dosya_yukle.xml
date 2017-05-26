@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/dosyayukle_layoutust"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/uyaribg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Önemli Uyarı! Sistemi gereksiz kullananların siteye erişimi süresiz yasaklanmaktadır."
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:textColor="#FFF"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/dosyayukle_dosyaadi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:hint="Dosya Adı"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:maxLength="50"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/dosyayukle_dosyaaciklama"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:hint="Açıklama"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:maxLength="100"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <EditText
+                    android:id="@+id/dosyayukle_gozat"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edittextstyle"
+                    android:hint="Dosya Seçin (max: 30Mb)"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:enabled="false"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:id="@+id/dosyayukle_dosyasecbtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_upload"
+                    android:onClick="islemYap"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/dosyayukle_guvenlik"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:padding="10dp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:maxLength="2"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dosyayukle_layoutyukleniyor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="3"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/upload_logo"
+                android:src="@drawable/upload"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <com.github.lzyzsd.circleprogress.DonutProgress
+                android:id="@+id/donut_progress"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                custom:donut_progress="0"
+                custom:donut_unfinished_color="#c9c9c9"
+                custom:donut_finished_color="#59a8b5"
+                custom:donut_text_size="28sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/dosyayukle_imgfb"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/fb"
+                android:onClick="islemYap"/>
+
+            <ImageView
+                android:id="@+id/dosyayukle_imgtw"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/tw"
+                android:layout_marginLeft="20dp"
+                android:onClick="islemYap"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
